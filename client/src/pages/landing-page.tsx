@@ -8,8 +8,8 @@ export default function LandingPage() {
       <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center">
           <div className="flex items-center gap-2">
-            <MessageSquare className="h-6 w-6" />
-            <span className="font-semibold">Gemini Chat</span>
+            <MessageSquare className="h-6 w-6 text-red-600" />
+            <span className="font-semibold text-red-600">SUKUNA CHAT BOT</span>
           </div>
           <div className="flex-1" />
           <Link href="/auth">
@@ -30,11 +30,11 @@ export default function LandingPage() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Chat with the most advanced AI
+                    Experience the Power of SUKUNA
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                    Experience the power of Google's Gemini 2.0 Pro in a familiar chat interface.
-                    Get instant answers, creative ideas, and expert assistance.
+                    Engage with SUKUNA's advanced AI chatbot. Built by SUKUNA DEVELOPER,
+                    featuring intelligent responses, code assistance, and creative problem-solving.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -53,12 +53,12 @@ export default function LandingPage() {
               <div className="mx-auto w-full max-w-[600px] sm:min-h-[400px] rounded-lg bg-muted p-8">
                 <div className="rounded-lg border bg-background p-4">
                   <div className="flex items-start gap-4 mb-4">
-                    <MessageSquare className="h-8 w-8 mt-1 text-primary" />
+                    <MessageSquare className="h-8 w-8 mt-1 text-red-600" />
                     <div className="space-y-1">
-                      <p className="text-sm font-medium leading-none">Assistant</p>
+                      <p className="text-sm font-medium leading-none">SUKUNA</p>
                       <p className="text-sm text-muted-foreground">
-                        Hello! I'm your AI assistant powered by Google's Gemini 2.0 Pro. 
-                        How can I help you today?
+                        Welcome! I'm SUKUNA, your AI companion powered by advanced technology.
+                        How can I assist you today?
                       </p>
                     </div>
                   </div>

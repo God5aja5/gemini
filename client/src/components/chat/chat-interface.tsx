@@ -83,9 +83,7 @@ export function ChatInterface({ selectedChat }: { selectedChat: Chat | null }) {
       queryClient.setQueryData(
         ["/api/chats"],
         (old: Chat[] = []) =>
-          old.map((chat) =>
-            chat.id === updatedChat.id ? updatedChat : chat
-          )
+          old.map((chat) => (chat.id === updatedChat.id ? updatedChat : chat))
       );
     },
     onError: (error) => {
@@ -101,12 +99,12 @@ export function ChatInterface({ selectedChat }: { selectedChat: Chat | null }) {
     return (
       <div className="flex-1 flex items-center justify-center bg-muted/50">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-2">Welcome to Gemini Chat</h2>
+          <h2 className="text-2xl font-semibold mb-2">Welcome to SUKUNA CHAT BOT</h2>
           <p className="text-muted-foreground">
             Select or create a chat to get started
           </p>
-          <p className="text-sm text-muted-foreground mt-4">
-            Developed by @BaignX | Sukuna dev
+          <p className="text-sm text-red-600 mt-4">
+            Powered by SUKUNA DEVELOPER
           </p>
         </div>
       </div>
@@ -165,8 +163,8 @@ export function ChatInterface({ selectedChat }: { selectedChat: Chat | null }) {
               }
             }}
           />
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             size="icon"
             disabled={sendMessage.isPending || !input.trim()}
           >

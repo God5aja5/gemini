@@ -1,1 +1,1 @@
-[[1,{"id":1,"chatId":1,"content":"Write me a code to write hellow","role":"user","createdAt":"2025-02-22T12:07:16.673Z"}],[2,{"id":2,"chatId":1,"content":"```python\nprint(\"Hellow\")\n```","role":"assistant","createdAt":"2025-02-22T12:07:17.522Z"}]]
+[[1,{"id":1,"chatId":1,"content":"Hi","role":"user","createdAt":"2025-02-22T12:19:49.003Z"}]]

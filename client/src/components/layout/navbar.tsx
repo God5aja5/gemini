@@ -17,8 +17,8 @@ export function Navbar() {
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <Link href="/" className="flex items-center gap-2 mr-6">
-          <MessageSquare className="h-6 w-6" />
-          <span className="font-semibold">Gemini Chat</span>
+          <MessageSquare className="h-6 w-6 text-red-600" />
+          <span className="font-semibold text-red-600">SUKUNA CHAT BOT</span>
         </Link>
 
         <div className="flex-1" />
