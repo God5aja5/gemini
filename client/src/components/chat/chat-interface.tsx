@@ -154,7 +154,7 @@ export function ChatInterface({ selectedChat }: { selectedChat: Chat | null }) {
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Message AI... (Type '/imagine' followed by your description to generate images)"
+            placeholder="Message AI..."
             className="min-h-[60px] max-h-[200px]"
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {

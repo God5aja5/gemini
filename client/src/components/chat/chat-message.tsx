@@ -1,12 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Message } from "@shared/schema";
-import { Bot, User, Copy, Share, Download, ChevronDown, ChevronUp } from "lucide-react";
+import { Bot, User, Copy, Download, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Image } from "@/components/ui/image";
 
 // Function to detect code blocks in text
 function extractCodeBlocks(content: string) {
@@ -119,28 +118,6 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
 export function ChatMessage({ message }: { message: Message }) {
   const blocks = message?.content ? extractCodeBlocks(message.content) : [];
 
-  const renderContent = () => {
-    if (message.type === "image") {
-      return (
-        <div className="mt-4">
-          <img 
-            src={message.content.match(/!\[.*?\]\((.*?)\)/)?.[1] || message.content} 
-            alt="Generated Image" 
-            className="rounded-lg max-w-full h-auto"
-          />
-        </div>
-      );
-    }
-
-    return blocks.map((block, index) => (
-      block.type === 'code' ? (
-        <CodeBlock key={index} code={block.content} language={block.language} />
-      ) : (
-        <div key={index} className="whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: block.content.replace(/\n/g, "<br/>") }} />
-      )
-    ));
-  };
-
   return (
     <Card className={`p-4 ${message.role === "assistant" ? "bg-muted" : ""}`}>
       <div className="flex gap-4">
@@ -152,7 +129,13 @@ export function ChatMessage({ message }: { message: Message }) {
           )}
         </div>
         <div className="flex-1 prose prose-sm dark:prose-invert">
-          {renderContent()}
+          {blocks.map((block, index) => (
+            block.type === 'code' ? (
+              <CodeBlock key={index} code={block.content} language={block.language} />
+            ) : (
+              <div key={index} className="whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: block.content.replace(/\n/g, "<br/>") }} />
+            )
+          ))}
         </div>
       </div>
     </Card>
