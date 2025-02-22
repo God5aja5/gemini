@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Redirect } from "wouter";
+import { MessageSquare } from "lucide-react";
 
 export default function AuthPage() {
   const { user, loginMutation, registerMutation } = useAuth();
@@ -45,7 +46,7 @@ export default function AuthPage() {
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="register">Register</TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="login">
             <Card>
               <CardHeader>
@@ -118,10 +119,16 @@ export default function AuthPage() {
 
       <div className="hidden lg:flex flex-1 bg-primary items-center justify-center p-12">
         <div className="max-w-lg text-center text-primary-foreground">
-          <h1 className="text-4xl font-bold mb-6">Chat with Gemini AI</h1>
+          <div className="flex justify-center mb-6">
+            <MessageSquare className="h-16 w-16 text-primary-foreground" />
+          </div>
+          <h1 className="text-4xl font-bold mb-6">SUKUNA CHAT BOT</h1>
           <p className="text-lg opacity-90">
-            Experience the power of Google's latest AI model in a familiar chat interface.
-            Ask questions, get assistance, and explore new ideas with Gemini.
+            Experience the power of SUKUNA's advanced AI in a familiar chat interface.
+            Ask questions, get assistance, and explore new ideas with SUKUNA.
+          </p>
+          <p className="text-sm mt-6">
+            Created by SUKUNA DEVELOPER
           </p>
         </div>
       </div>
