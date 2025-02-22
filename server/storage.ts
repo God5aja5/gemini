@@ -10,14 +10,17 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  getAllUsers(): Promise<User[]>;  // New admin method
 
   createChat(userId: number, title: string, modelId?: string): Promise<Chat>;
   getChats(userId: number): Promise<Chat[]>;
   getChat(id: number): Promise<Chat | undefined>;
   updateChat(id: number, updates: Partial<Chat>): Promise<Chat>;
+  getAllChats(): Promise<Chat[]>;  // New admin method
 
   createMessage(chatId: number, content: string, role: "user" | "assistant"): Promise<Message>;
   getMessages(chatId: number): Promise<Message[]>;
+  getAllMessages(): Promise<Message[]>;  // New admin method
 
   sessionStore: session.Store;
 }
@@ -64,9 +67,18 @@ export class MemStorage implements IStorage {
     );
   }
 
+  async getAllUsers(): Promise<User[]> {
+    return Array.from(this.users.values());
+  }
+
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.nextUserId++;
-    const user: User = { ...insertUser, id, settings: {} };
+    const user: User = { 
+      ...insertUser, 
+      id, 
+      isAdmin: false,  // Default to non-admin
+      settings: {} 
+    };
     this.users.set(id, user);
     await this.persistData("users", this.users);
     return user;
@@ -102,6 +114,10 @@ export class MemStorage implements IStorage {
     );
   }
 
+  async getAllChats(): Promise<Chat[]> {
+    return Array.from(this.chats.values());
+  }
+
   async getChat(id: number): Promise<Chat | undefined> {
     return this.chats.get(id);
   }
@@ -127,6 +143,11 @@ export class MemStorage implements IStorage {
   async getMessages(chatId: number): Promise<Message[]> {
     return Array.from(this.messages.values())
       .filter((msg) => msg.chatId === chatId)
+      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+  }
+
+  async getAllMessages(): Promise<Message[]> {
+    return Array.from(this.messages.values())
       .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
   }
 }

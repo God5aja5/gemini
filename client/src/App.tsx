@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import AuthPage from "@/pages/auth-page";
 import ChatPage from "@/pages/chat-page";
 import SettingsPage from "@/pages/settings-page";
+import AdminPage from "@/pages/admin-page";
 import LandingPage from "@/pages/landing-page";
 import { ThemeProvider } from "next-themes";
 import { useAuth } from "./hooks/use-auth";
@@ -21,6 +22,7 @@ function Router() {
         {user ? <ChatPage /> : <LandingPage />}
       </Route>
       <ProtectedRoute path="/settings" component={SettingsPage} />
+      <ProtectedRoute path="/admin" component={AdminPage} />
       <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>

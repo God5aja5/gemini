@@ -5,10 +5,28 @@ import { storage } from "./storage";
 import { generateChatResponse } from "./ai-service";
 import { insertChatSchema, insertMessageSchema } from "@shared/schema";
 import { ZodError } from "zod";
+import { isAdmin } from "./admin-middleware";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   setupAuth(app);
 
+  // Admin routes
+  app.get("/api/admin/users", isAdmin, async (req, res) => {
+    const users = await storage.getAllUsers();
+    res.json(users);
+  });
+
+  app.get("/api/admin/chats", isAdmin, async (req, res) => {
+    const chats = await storage.getAllChats();
+    res.json(chats);
+  });
+
+  app.get("/api/admin/messages", isAdmin, async (req, res) => {
+    const messages = await storage.getAllMessages();
+    res.json(messages);
+  });
+
+  // Existing routes
   app.get("/api/chats", async (req, res) => {
     if (!req.user) return res.sendStatus(401);
     const chats = await storage.getChats(req.user.id);

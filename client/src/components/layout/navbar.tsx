@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, MessageSquare, Settings, User } from "lucide-react";
+import { LogOut, MessageSquare, Settings, User, Shield } from "lucide-react";
 
 export function Navbar() {
   const { user, logoutMutation } = useAuth();
@@ -34,6 +34,14 @@ export function Navbar() {
               <span className="font-medium">{user?.username}</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
+            {user?.isAdmin && (
+              <DropdownMenuItem asChild>
+                <Link href="/admin" className="flex items-center cursor-pointer">
+                  <Shield className="mr-2 h-4 w-4" />
+                  Admin Dashboard
+                </Link>
+              </DropdownMenuItem>
+            )}
             <DropdownMenuItem asChild>
               <Link href="/settings" className="flex items-center cursor-pointer">
                 <Settings className="mr-2 h-4 w-4" />
