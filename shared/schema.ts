@@ -23,6 +23,7 @@ export const messages = pgTable("messages", {
   chatId: serial("chat_id").references(() => chats.id),
   content: text("content").notNull(),
   role: text("role", { enum: ["user", "assistant"] }).notNull(),
+  type: text("type", { enum: ["text", "image"] }).default("text").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -39,6 +40,7 @@ export const insertChatSchema = createInsertSchema(chats).pick({
 export const insertMessageSchema = createInsertSchema(messages).pick({
   content: true,
   role: true,
+  type: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
