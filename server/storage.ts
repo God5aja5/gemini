@@ -10,14 +10,15 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
-  createChat(userId: number, title: string): Promise<Chat>;
+
+  createChat(userId: number, title: string, modelId?: string): Promise<Chat>;
   getChats(userId: number): Promise<Chat[]>;
   getChat(id: number): Promise<Chat | undefined>;
-  
+  updateChat(id: number, updates: Partial<Chat>): Promise<Chat>;
+
   createMessage(chatId: number, content: string, role: "user" | "assistant"): Promise<Message>;
   getMessages(chatId: number): Promise<Message[]>;
-  
+
   sessionStore: session.Store;
 }
 
@@ -71,17 +72,28 @@ export class MemStorage implements IStorage {
     return user;
   }
 
-  async createChat(userId: number, title: string): Promise<Chat> {
+  async createChat(userId: number, title: string, modelId: string = "gemini-1.0-pro"): Promise<Chat> {
     const id = this.nextChatId++;
     const chat: Chat = {
       id,
       userId,
       title,
+      modelId,
       createdAt: new Date(),
     };
     this.chats.set(id, chat);
     await this.persistData("chats", this.chats);
     return chat;
+  }
+
+  async updateChat(id: number, updates: Partial<Chat>): Promise<Chat> {
+    const chat = this.chats.get(id);
+    if (!chat) throw new Error("Chat not found");
+
+    const updatedChat = { ...chat, ...updates };
+    this.chats.set(id, updatedChat);
+    await this.persistData("chats", this.chats);
+    return updatedChat;
   }
 
   async getChats(userId: number): Promise<Chat[]> {

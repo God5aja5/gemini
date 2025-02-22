@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { setupAuth } from "./auth";
 import { storage } from "./storage";
-import { generateChatResponse } from "./gemini";
+import { generateChatResponse } from "./ai-service";
 import { insertChatSchema, insertMessageSchema } from "@shared/schema";
 import { ZodError } from "zod";
 
@@ -19,7 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     if (!req.user) return res.sendStatus(401);
     try {
       const data = insertChatSchema.parse(req.body);
-      const chat = await storage.createChat(req.user.id, data.title);
+      const chat = await storage.createChat(req.user.id, data.title, data.modelId);
       res.json(chat);
     } catch (e) {
       if (e instanceof ZodError) {
@@ -28,6 +28,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         throw e;
       }
     }
+  });
+
+  app.patch("/api/chats/:chatId", async (req, res) => {
+    if (!req.user) return res.sendStatus(401);
+    const chat = await storage.getChat(parseInt(req.params.chatId));
+    if (!chat || chat.userId !== req.user.id) {
+      return res.sendStatus(404);
+    }
+    const updatedChat = await storage.updateChat(chat.id, req.body);
+    res.json(updatedChat);
   });
 
   app.get("/api/chats/:chatId/messages", async (req, res) => {
@@ -42,7 +52,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/chats/:chatId/messages", async (req, res) => {
     if (!req.user) return res.sendStatus(401);
-    
+
     try {
       const chat = await storage.getChat(parseInt(req.params.chatId));
       if (!chat || chat.userId !== req.user.id) {
@@ -59,7 +69,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (data.role === "user") {
         const messages = await storage.getMessages(chat.id);
         const aiResponse = await generateChatResponse(
-          messages.map(m => ({ role: m.role, content: m.content }))
+          messages.map(m => ({ role: m.role, content: m.content })),
+          chat.modelId
         );
         const aiMessage = await storage.createMessage(
           chat.id,

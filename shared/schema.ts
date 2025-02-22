@@ -13,6 +13,7 @@ export const chats = pgTable("chats", {
   id: serial("id").primaryKey(),
   userId: serial("user_id").references(() => users.id),
   title: text("title").notNull(),
+  modelId: text("model_id").default("gemini-1.0-pro").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -31,6 +32,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export const insertChatSchema = createInsertSchema(chats).pick({
   title: true,
+  modelId: true,
 });
 
 export const insertMessageSchema = createInsertSchema(messages).pick({

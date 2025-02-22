@@ -1,6 +1,12 @@
+import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+
+// Ensure required environment variables are set
+process.env.GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyAgswygqTmVvhQ28oZUvjVQVMLdbka4-Jc";
+process.env.ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "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";
+process.env.SESSION_SECRET = process.env.SESSION_SECRET || "your-secret-key";
 
 const app = express();
 app.use(express.json());
@@ -47,17 +53,12 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
   const port = 5000;
   server.listen({
     port,
