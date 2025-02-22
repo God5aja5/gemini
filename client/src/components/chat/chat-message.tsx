@@ -3,6 +3,10 @@ import { Message } from "@shared/schema";
 import { Bot, User } from "lucide-react";
 
 export function ChatMessage({ message }: { message: Message }) {
+  const formattedContent = message?.content 
+    ? message.content.replace(/\n/g, "<br/>")
+    : "";
+
   return (
     <Card className={`p-4 ${message.role === "assistant" ? "bg-muted" : ""}`}>
       <div className="flex gap-4">
@@ -14,7 +18,10 @@ export function ChatMessage({ message }: { message: Message }) {
           )}
         </div>
         <div className="flex-1 prose prose-sm dark:prose-invert">
-          <div dangerouslySetInnerHTML={{ __html: message.content.replace(/\n/g, "<br/>") }} />
+          <div 
+            className="whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: formattedContent }} 
+          />
         </div>
       </div>
     </Card>

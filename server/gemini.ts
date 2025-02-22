@@ -7,7 +7,7 @@ export async function generateChatResponse(messages: { role: string; content: st
   const chat = model.startChat({
     history: messages.map(msg => ({
       role: msg.role === "user" ? "user" : "model",
-      parts: msg.content,
+      parts: [{ text: msg.content }],
     })),
   });
 
