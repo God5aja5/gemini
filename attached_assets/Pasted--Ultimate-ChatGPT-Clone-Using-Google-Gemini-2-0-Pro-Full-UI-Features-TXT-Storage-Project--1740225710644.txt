@@ -1,0 +1,187 @@
+🚀 Ultimate ChatGPT Clone Using Google Gemini 2.0 Pro – Full UI, Features & TXT Storage
+
+📌 Project Objective:
+
+Create a fully functional ChatGPT clone that replicates the exact design, animations, and features of OpenAI’s ChatGPT. This project will use Google Gemini 2.0 Pro as the AI model instead of OpenAI and store user data in plain TXT files instead of databases. The system will be fully responsive, optimized for PC, Android, and iOS, and will include all essential pages except subscription-related features.
+
+
+---
+
+🔹 Key Features Overview
+
+✅ Exact ChatGPT UI & Animations (Same Fonts, Colors, Layout & Transitions)
+✅ AI Chatbot Integration with Google Gemini 2.0 Pro (API Key Ready)
+✅ TXT File-Based Storage (No SQL, No MongoDB, No Firebase – Only Plain Files)
+✅ Full Chat History Management (Stored as Text Files for Each User)
+✅ Dark Mode, UI Customization & Code Display Feature (Black Box for Code)
+✅ Complete Authentication System (Username & Password Only, No Google Login)
+✅ Fully Optimized for PC, Android, and iOS (Mobile-Friendly Layout)
+
+
+---
+
+1️⃣ User Authentication System (Username & Password-Based Login Only)
+
+🚀 Features:
+✅ User Registration (Sign Up Page)
+
+Users create an account with username, email, and password.
+
+Secure password hashing before saving credentials to TXT files.
+
+Each user’s credentials are stored in a users.txt file.
+
+
+✅ User Login (Sign In Page)
+
+Simple login form requiring username and password.
+
+Authentication verifies username-password match from stored TXT file.
+
+
+✅ Forgot Password System
+
+Users can request a password reset via email.
+
+System generates a one-time reset link (valid for a limited time).
+
+
+✅ Profile Management Page
+
+Users can change username, update password, or upload a profile picture.
+
+Updated details are stored in users.txt file.
+
+
+✅ Session Management
+
+Users stay logged in using session cookies.
+
+Automatic session timeout after inactivity.
+
+
+❌ No Google, Facebook, or third-party logins (manual account creation only).
+
+
+---
+
+2️⃣ Exact ChatGPT UI & Animations (Pixel-Perfect Clone)
+
+✅ Identical color scheme, layout, and typography (same fonts & UI elements).
+✅ Smooth animations for message bubbles, loading indicators, and buttons.
+✅ Typing effect animation to simulate ChatGPT’s response delay.
+✅ Auto-scroll feature to keep the latest message visible.
+✅ 100% Mobile-Responsive UI (works on PC, Android, iOS).
+✅ Hamburger menu for small screens (easy mobile navigation).
+
+
+---
+
+3️⃣ Pages Included (All Essential Pages, No Subscription Features)
+
+✅ Landing Page – Introduces the chatbot with real images and a sleek layout.
+✅ Sign Up / Sign In Page – Username & password-based authentication.
+✅ Chat Interface – The main chat system with AI-powered responses.
+✅ Settings Page – Customization options (dark mode, font size, UI themes).
+✅ About Page – Information about the AI model and its capabilities.
+✅ Help & FAQ Page – Common troubleshooting and how to use the chatbot.
+✅ Contact Us Page – Users can send queries or feedback.
+✅ Profile Page – Manage user profile details.
+✅ Chat History Page – Users can view past conversations.
+✅ Terms & Privacy Policy Page – Legal and privacy information.
+
+❌ No Subscription Page – The chatbot is free for users.
+
+
+---
+
+4️⃣ AI Chatbot Integration (Powered by Google Gemini 2.0 Pro)
+
+✅ Google Gemini 2.0 Pro replaces OpenAI's API.
+✅ Integrated with the following API Key:
+API Key: AIzaSyAgswygqTmVvhQ28oZUvjVQVMLdbka4-Jc
+✅ Multi-turn conversation support (AI remembers previous messages).
+✅ AI-generated markdown support (bold, italics, links, bullet points).
+✅ Typing indicator animation ("AI is thinking..." effect).
+✅ Handles various types of queries (text, code, logic-based responses).
+
+
+---
+
+5️⃣ Dark Mode & UI Customization
+
+✅ Dark Mode / Light Mode toggle (ChatGPT-style switcher).
+✅ Adjustable font size (small, medium, large).
+✅ Theme customization (background, chat bubble colors).
+
+
+---
+
+6️⃣ Data Storage (TXT File-Based System – No SQL, No Firebase, No MongoDB)
+
+🔹 User Account Storage:
+
+users.txt → Stores username, email, hashed password, and profile settings.
+
+
+🔹 Chat History Storage:
+
+Each user's chat is saved in a chats/{username}.txt file.
+
+Each conversation is appended to the user’s chat history.
+
+
+🔹 Settings Storage:
+
+settings.txt → Stores UI preferences (dark mode, font size, etc.).
+
+
+✅ Efficient file management (read/write operations are optimized).
+✅ Fast retrieval & secure handling of text-based data.
+
+
+---
+
+7️⃣ Security & Performance Enhancements
+
+✅ Rate Limiting – Prevents spam and overuse of the AI model.
+✅ Session Timeout & Auto Logout – Enhances security for inactive users.
+✅ Basic Encryption for TXT Storage – Ensures passwords are hashed.
+✅ Optimized API Calls – Avoids unnecessary requests to Gemini 2.0.
+
+
+---
+
+8️⃣ Code Display Feature (Black Box for Code Responses)
+
+✅ AI-generated code appears inside a black UI box (ChatGPT style).
+✅ Supports syntax highlighting for various programming languages.
+✅ Copy, Share, and Download buttons for code snippets.
+
+
+---
+
+9️⃣ Chat History & Admin Logs
+
+✅ Users can revisit past conversations on the Chat History page.
+✅ Admin logs track API usage, user activity, and errors.
+
+
+---
+
+🔹 Additional Enhancements
+
+✅ Auto-scroll to latest message when AI responds.
+✅ Message sending animation (ChatGPT-style delay effect).
+✅ Tooltips for buttons (explaining copy, share, delete functions).
+
+
+---
+
+🔥 Final Deliverables
+
+✅ Fully functional ChatGPT clone (frontend + backend).
+✅ Exact UI & animations of ChatGPT (pixel-perfect design).
+✅ No database – all data stored in TXT files.
+✅ Uses Google Gemini 2.0 Pro instead of OpenAI API.
+✅ All essential pages included, except subscription features.
