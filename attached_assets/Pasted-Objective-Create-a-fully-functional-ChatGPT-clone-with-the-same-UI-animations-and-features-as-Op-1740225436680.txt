@@ -1,0 +1,130 @@
+Objective:
+
+Create a fully functional ChatGPT clone with the same UI, animations, and features as OpenAI's ChatGPT website. This version will use Google Gemini 2.0 Pro for AI responses, store data in TXT files instead of databases, and include all essential pages except for subscription-related features.
+
+
+---
+
+🔹 Key Features
+
+1️⃣ User Authentication (Username & Password Only)
+
+✅ Sign Up & Sign In system with a simple form (username, email, and password).
+✅ Secure password hashing and session management.
+✅ No Google, Facebook, or third-party logins (manual account creation only).
+✅ Forgot Password option with email-based password reset.
+✅ Basic profile management (change username, password, and avatar).
+
+
+---
+
+2️⃣ Exact ChatGPT UI & Animations
+
+✅ Exact color scheme, layout, and design as ChatGPT.
+✅ Smooth animations (message bubbles, typing indicator, transitions).
+✅ Auto-scroll feature to keep the latest message visible.
+✅ Full responsive design for PC, Android, and iOS.
+✅ Mobile-friendly menu (hamburger icon for small screens).
+
+
+---
+
+3️⃣ Pages Included (All Essential Pages, No Subscription)
+
+✅ Landing Page – Informative, clean UI with ChatGPT-like layout and real images.
+✅ Sign Up / Sign In Page – Username & password-based login system.
+✅ Chat Interface – Identical to ChatGPT (same layout, fonts, and colors).
+✅ Settings Page – Toggle dark mode, font size, and theme.
+✅ About Page – Information about the AI model and how it works.
+✅ Help & FAQ Page – Common user queries, troubleshooting, and guidelines.
+✅ Contact Us Page – A simple form for users to send queries.
+✅ Profile Page – User profile management (change username, avatar, password).
+✅ Chat History Page – List of previous conversations.
+✅ Terms & Privacy Policy Page – Legal information and user rights.
+
+❌ No Subscription Page – The service is free without paid plans.
+
+
+---
+
+4️⃣ AI Chatbot Integration (Google Gemini 2.0 Pro)
+
+✅ Uses Google Gemini 2.0 Pro instead of OpenAI’s API.
+✅ Integrated with this API Key:
+API Key: AIzaSyAgswygqTmVvhQ28oZUvjVQVMLdbka4-Jc
+✅ Multi-turn conversation support (AI remembers previous messages).
+✅ Markdown support for code formatting, bullet points, and links.
+✅ Typing indicator (AI is thinking animation).
+
+
+---
+
+5️⃣ Dark Mode & UI Customization
+
+✅ Dark Mode / Light Mode toggle (exact ChatGPT UI theme switcher).
+✅ Customizable fonts (small, medium, large text).
+✅ Different UI themes (adjustable background, bubble colors).
+
+
+---
+
+6️⃣ Data Storage (TXT File-Based System, No Database)
+
+✅ User Accounts Stored in TXT – Username, email, and password are stored in a text file.
+✅ Chat History Stored in TXT – Each user’s chat log is saved in a separate text file.
+✅ Settings Stored in TXT – User preferences are saved in a settings file.
+✅ Efficient data retrieval – System reads and writes text files quickly.
+
+
+---
+
+7️⃣ Security & Performance Enhancements
+
+✅ Rate Limiting – Prevents spam requests to the AI.
+✅ Session Timeouts – Users get logged out after inactivity.
+✅ Basic Encryption – Secures user data in TXT files.
+✅ Optimized API Calls – Reduces unnecessary requests to the AI model.
+
+
+---
+
+8️⃣ Code Display Feature (Black Box Output for Code Responses)
+
+✅ AI-generated code snippets appear in a black UI box for better readability.
+✅ Syntax highlighting for programming languages (Python, JavaScript, HTML, etc.).
+✅ Copy, Share, and Download buttons for generated code.
+
+
+---
+
+9️⃣ Chat History & Logs
+
+✅ Chat History Page – Users can view and revisit past conversations.
+✅ Admin Logs – Stores error logs, API request details, and user activity.
+
+
+---
+
+🔹 Additional Enhancements
+
+Auto-scroll to the latest message when AI replies.
+
+Message sending animation (like ChatGPT’s delayed response effect).
+
+Tooltips for buttons (explaining functions like copy, share, delete).
+
+
+
+---
+
+🔹 Final Deliverables:
+
+Fully functional ChatGPT clone (frontend + backend).
+
+Exact ChatGPT UI & animations.
+
+No database – uses TXT files for storage.
+
+Uses Google Gemini 2.0 Pro instead of OpenAI API.
+
+All essential pages included (except subscription features).
